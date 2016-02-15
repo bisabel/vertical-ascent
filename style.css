@@ -1,0 +1,102 @@
+/*
+Theme Name: Vertical Ascent
+Theme URI: https://github.com/bisabel/vertical-ascent
+Description: Tema de wordpress donde se apilan todas las paginas en una
+Author: bisabel
+Author URI: http://www.cosebien.com
+Version: 1.0
+*/
+
+html, body, body * { margin:0; padding:0; font-family: 'Gotham SSm A','Gotham Book','Arial','sans-serif';}
+h1{	font-size: 42px;}
+h3{	font-size: 26px;
+	
+}
+.wrapper, .wrapper section, .wrapper div, .wrapper header{ 
+	margin: 0;	
+	padding: 0;
+}
+
+.header {
+	padding: 100px 0;
+}
+
+.header-inner {
+	display: block;
+	margin: auto;
+	text-align: center;
+}
+
+.blog-info {
+	text-align: center;
+	display: inline-block;
+	background-color: black;
+	color: white;	
+	padding: 50px;
+}
+
+#fondo_imagen {
+	background-size: cover;	
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+}
+
+.blog-info h1{
+}
+
+/**menu**/
+.menu ul {
+	background-color: black;
+	padding: 10px;
+}
+
+.menu ul li {
+	display: inline;
+}
+
+.menu ul li a{
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+.menu ul li a:hover {
+    background-color: orange;
+}
+/**end menu**/
+
+#navigator {
+	position: fixed;
+	left: 0;
+	top: 100px;
+	display: block;
+	background-color: black;
+	background: rgba(0, 0, 0, 0.8) none repeat scroll 0 0;	
+    z-index: 999;
+    width: 30px;
+    padding: 10px;
+}
+
+#navigator li {
+	list-style: outside none none;
+	background-color: white;
+    margin: 5px;
+}
+
+/**footer**/
+footer {
+	background-color: black;
+	color: white;
+	margin: auto;
+}
+.footer_div {
+	align: center;
+	display: flex;
+	margin: 0 auto;
+}
+.footer_div div{
+	float: left;
+	padding: 25px;
+}
+
