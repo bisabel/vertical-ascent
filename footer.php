@@ -20,7 +20,7 @@ along with Vertical-Ascent. If not, see <http://www.gnu.org/licenses/>.
 		<div><strong>Contacto</strong><br><p>Telefono: 1234567</p></div>
 		<div><strong>Horario</strong><br><p>L-V: 9:00-14:00<br> y 17:00-20:30</p></div>
 	</div>	
-		<div><p><?php bloginfo('name'); ?>, <?=date('Y');?>. Mi primer tema de WP.</p></div>
+		<div><p><?php bloginfo('name'); ?>, <?=date('Y');'©'?>. Utilizando el tema <a href="https://github.com/bisabel/vertical-ascent">vertical-ascend</a></p></div>
 </footer>
 
 </div> <!-- Fin de wrapper -->

@@ -27,11 +27,14 @@ along with Vertical-Ascent. If not, see <http://www.gnu.org/licenses/>.
 		$content = apply_filters( 'the_content', $content );
 		array_push($array_id,$page->ID);
 	?>
-		<section>
-			<h2><a href="<?php echo get_page_link( $page->ID ); ?>"><?php echo $page->post_title; ?></a></h2>
-			<div id="<?php echo $page->ID; ?>" 
-		     	class="entry" style="background-color: red;">
-		     	<?php echo $content; ?></div>
+		<section style="background-image: url(<?php if (get_header_image() != '') header_image(); else echo 'https://source.unsplash.com/category/buildings' ?>)">
+			<article>
+				<header><h2><a href="<?php echo get_page_link( $page->ID ); ?>"><?php echo $page->post_title; ?></a></h2></header>
+			<!-- <div id="<?php //echo $page->ID; ?>" 
+		     	class="entry" style="background-color: red;">  -->
+		     	<div><?php echo $content; ?></div>
+			</article>
+		     <!-- </div>-->
 		</section>
 <?php  
   }//end foreach 

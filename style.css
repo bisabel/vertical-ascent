@@ -9,25 +9,34 @@ Version: 1.0
 
 html, body, body * { margin:0; padding:0; font-family: 'Gotham SSm A','Gotham Book','Arial','sans-serif';}
 h1{	font-size: 42px;}
-h3{	font-size: 26px;
-	
-}
+h3{	font-size: 26px;}
+@media only screen and (min-width: 1280px) { section article, footer div { width: 1280px; } }
+section article, footer div { margin: 0 auto; padding-top: 25px;  padding-bottom: 25px;  }
+/*article header { margin-bottom: 25px auto; }*/
+
 .wrapper, .wrapper section, .wrapper div, .wrapper header{ 
 	margin: 0;	
 	padding: 0;
 }
 
-.header {
-	padding: 100px 0;
+section {
+	background-size: cover;	
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+}
+#fondo_imagen {
+	background-size: cover;	
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	 display: flex;
 }
 
-.header-inner {
+/**la cebecera de todas las paginas**/
+#header-main {
 	display: block;
-	margin: auto;
-	text-align: center;
-}
-
-.blog-info {
+	margin: 100px auto 100px auto;
 	text-align: center;
 	display: inline-block;
 	background-color: black;
@@ -35,34 +44,25 @@ h3{	font-size: 26px;
 	padding: 50px;
 }
 
-#fondo_imagen {
-	background-size: cover;	
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-}
-
-.blog-info h1{
-}
-
 /**menu**/
-.menu ul {
+nav ul {
 	background-color: black;
-	padding: 10px;
+	padding: 12px;
 }
 
-.menu ul li {
+nav ul li {
 	display: inline;
 }
 
-.menu ul li a{
+nav ul li a{
     color: white;
     padding: 10px 20px;
     text-decoration: none;
 }
 
-.menu ul li a:hover {
+nav ul li a:hover {
     background-color: orange;
+    text-shadow: 0.1em 0.2em 0.3em white;/**@todo only in big screen**/
 }
 /**end menu**/
 
@@ -90,6 +90,10 @@ footer {
 	color: white;
 	margin: auto;
 }
+footer a {
+	text-decoration:none;  
+	color: white; 
+}
 .footer_div {
 	align: center;
 	display: flex;
@@ -99,4 +103,4 @@ footer {
 	float: left;
 	padding: 25px;
 }
-
+/**end footer**/
