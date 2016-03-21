@@ -17,9 +17,11 @@ along with Vertical-Ascent. If not, see <http://www.gnu.org/licenses/>.
 **/
 ?>
 <?php get_header();?> 
-<section style="background-image: url(<?php if (get_header_image() != '') header_image(); else echo 'https://source.unsplash.com/category/buildings' ?>)"> 
+<section> 
 	<?php while ( have_posts() ) : the_post();?>
-	<article>
+	<article  class="fondo_imagen" style="background-image: url(<?php if (has_post_thumbnail( $post->ID )) 
+																	echo wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' )[0]; 
+																else echo 'https://source.unsplash.com/category/buildings' ?>)">
 		<header><?php single_post_title()?></header>
 		<?php //get_template_part( 'content', 'page' );?>
 		<?php the_content(); ?>

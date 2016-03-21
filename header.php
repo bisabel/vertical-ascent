@@ -36,11 +36,11 @@
 </head>
 <body>
 	<div class="header-cover section bg-dark-light no-padding">
-		<div id="fondo_imagen" style="background-image: url(<?php if (get_header_image() != '') header_image(); else echo 'https://source.unsplash.com/category/nature' ?>)">
+		<div class="fondo_imagen" style="background-image: url(<?php if (get_header_image() != '') header_image(); else echo 'https://source.unsplash.com/category/nature' ?>)">
 	<!--<div id="fondo_imagen" style="background-image: url(<?php //if (get_header_image() != '') header_image(); else echo get_template_directory_uri() . '/images/header.png'; ?>)"> -->
 			<header id="header-main">
 				<h1 class="blog-title">
-					<a style="text-decoration:none;" href="<?php echo esc_url( home_url() ); ?>" title="<?php echo esc_attr( get_bloginfo( 'title' ) ); ?> &mdash; <?php echo esc_attr( get_bloginfo( 'description' ) ); ?>" rel="home"><?php echo esc_attr( get_bloginfo( 'title' ) ); ?></a>
+					<a style="text-decoration:none;color: white;" href="<?php echo esc_url( home_url() ); ?>" title="<?php echo esc_attr( get_bloginfo( 'title' ) ); ?> &mdash; <?php echo esc_attr( get_bloginfo( 'description' ) ); ?>" rel="home"><?php echo esc_attr( get_bloginfo( 'title' ) ); ?></a>
 				</h1>
 				<?php if ( get_bloginfo( 'description' ) ) { ?>
 					<h3 class="blog-description"><?php echo esc_attr( get_bloginfo( 'description' ) ); ?></h3>

@@ -10,9 +10,12 @@ Version: 1.0
 html, body, body * { margin:0; padding:0; font-family: 'Gotham SSm A','Gotham Book','Arial','sans-serif';}
 h1{	font-size: 42px;}
 h3{	font-size: 26px;}
-@media only screen and (min-width: 1280px) { section article, footer div { width: 1280px; } }
-section article, footer div { margin: 0 auto; padding-top: 25px;  padding-bottom: 25px;  }
-/*article header { margin-bottom: 25px auto; }*/
+a { text-decoration:none; color: black;}
+
+@media only screen and (min-width: 1040px) { 
+	article > *, footer div { width: 1040px; margin: 0 auto;}
+	article header { padding-top: 10px; width: 90%; max-width: 1600px;font-size: 30px; line-height: normal; text-transform: uppercase;}
+}
 
 .wrapper, .wrapper section, .wrapper div, .wrapper header{ 
 	margin: 0;	
@@ -20,28 +23,32 @@ section article, footer div { margin: 0 auto; padding-top: 25px;  padding-bottom
 }
 
 section {
+	margin: auto;
 	background-size: cover;	
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 }
-#fondo_imagen {
+.fondo_imagen {
 	background-size: cover;	
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
-	 display: flex;
+	padding: 30px;
 }
 
 /**la cebecera de todas las paginas**/
 #header-main {
-	display: block;
-	margin: 100px auto 100px auto;
-	text-align: center;
-	display: inline-block;
 	background-color: black;
-	color: white;	
-	padding: 50px;
+    color: white;
+    display: block;
+    margin: 10px auto;
+    padding: 30px;
+    text-align: center;
+    max-width: 450px;
+}
+#header-main h1 {
+	padding: 20px;
 }
 
 /**menu**/
@@ -94,6 +101,11 @@ footer a {
 	text-decoration:none;  
 	color: white; 
 }
+footer div { 
+	margin: 0 auto; 
+	padding-top: 25px;  
+	padding-bottom: 25px;  
+}
 .footer_div {
 	align: center;
 	display: flex;
@@ -104,3 +116,25 @@ footer a {
 	padding: 25px;
 }
 /**end footer**/
+
+/**formulario de comentario input y textarea**/
+#commentform * { margin: 5px 5px;}
+input[type="submit"]:hover {	background-color: orange; text-shadow: 0.1em 0.2em 0.3em white;/**@todo only in big screen**/	}
+input[type="submit"] {
+	color: white;
+	border-radius: 2px;
+	padding: 10px 15px;
+	background-color: black;
+	border: 0 none;
+}
+textarea:hover, input:hover {	border-color: orange;	 }
+textarea, input {
+    background: #f7f7f7 none repeat scroll 0 0;
+    border: 2px solid #d1d1d1;
+    border-radius: 2px;
+    color: #686868;
+    padding: 5px 5px;
+}
+textarea {	width: 100%;}
+
+

@@ -17,6 +17,7 @@ along with Vertical-Ascent. If not, see <http://www.gnu.org/licenses/>.
 **/
 ?>
 <?php get_header(); ?>
+	<section id="main">
 <?php //get_sidebar()
   $pages = get_pages(); 
   $array_id = array();
@@ -27,19 +28,17 @@ along with Vertical-Ascent. If not, see <http://www.gnu.org/licenses/>.
 		$content = apply_filters( 'the_content', $content );
 		array_push($array_id,$page->ID);
 	?>
-		<section style="background-image: url(<?php if (get_header_image() != '') header_image(); else echo 'https://source.unsplash.com/category/buildings' ?>)">
-			<article>
-				<header><h2><a href="<?php echo get_page_link( $page->ID ); ?>"><?php echo $page->post_title; ?></a></h2></header>
-			<!-- <div id="<?php //echo $page->ID; ?>" 
-		     	class="entry" style="background-color: red;">  -->
-		     	<div><?php echo $content; ?></div>
-			</article>
-		     <!-- </div>-->
-		</section>
+		<article  class="fondo_imagen"  style="background-image: url(<?php if (get_header_image() != '') header_image(); else echo 'https://source.unsplash.com/category/buildings' ?>)">
+			 <header><h1><a href="<?php echo get_page_link( $page->ID );?>"><?php echo $page->post_title; ?></a></h1></header>	
+			 <div id="<?php echo $page->ID; ?>"> <!-- class="entry" style="background-color: red;">  -->
+		     	<?php echo $content; ?>
+		     </div>
+		</article>
 <?php  
   }//end foreach 
   error_log(implode(",",$array_id));
 ?>
+  </section>
   <ul id="navigator">
   <?php
   	foreach ($array_id as $id)
