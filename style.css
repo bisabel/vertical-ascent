@@ -3,18 +3,19 @@ Theme Name: Vertical Ascent
 Theme URI: https://github.com/bisabel/vertical-ascent
 Description: Tema de wordpress donde se apilan todas las paginas en una
 Author: bisabel
-Author URI: http://www.cosebien.com
+Author URI: http://es.linkedin.com/in/bisabel
 Version: 1.0
 */
 
 html, body, body * { margin:0; padding:0; font-family: 'Gotham SSm A','Gotham Book','Arial','sans-serif';}
 h1{	font-size: 42px;}
 h3{	font-size: 26px;}
-a { text-decoration:none; color: black;}
+a { text-decoration:none; color: #040404;}
 
 @media only screen and (min-width: 1040px) { 
 	article > *, footer div { width: 1040px; margin: 0 auto;}
 	article header { padding-top: 10px; width: 90%; max-width: 1600px;font-size: 30px; line-height: normal; text-transform: uppercase;}
+	.article_body {	padding: 15px 0px;} 
 }
 
 .wrapper, .wrapper section, .wrapper div, .wrapper header{ 
@@ -29,23 +30,30 @@ section {
 	-moz-background-size: cover;
 	-o-background-size: cover;
 }
+
 .fondo_imagen {
 	background-size: cover;	
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
-	padding: 30px;
+	padding: 125px;
 }
 
 /**la cebecera de todas las paginas**/
 #header-main {
-	background-color: black;
-    color: white;
+	background-color: #040404;
+    color: #f2f2f2;
     display: block;
-    margin: 10px auto;
     padding: 30px;
     text-align: center;
     max-width: 450px;
+    position: absolute;
+    top: 200px;
+	left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 25;
 }
 #header-main h1 {
 	padding: 20px;
@@ -53,23 +61,29 @@ section {
 
 /**menu**/
 nav ul {
-	background-color: black;
-	padding: 12px;
+	background-color: #040404;
+	padding: 24px;
 }
 
-nav ul li {
-	display: inline;
+@media only screen and (min-width: 640px) { 
+nav ul li {	display: inline;}
+}
+@media only screen and (max-width: 640px) { 
+nav ul li {	display: flex;}
+.menu { top: 0; left : 0; position: absolute;}
+.menu {visibility: hidden; }
 }
 
 nav ul li a{
-    color: white;
+    color: #f2f2f2;
     padding: 10px 20px;
     text-decoration: none;
 }
 
 nav ul li a:hover {
-    background-color: orange;
-    text-shadow: 0.1em 0.2em 0.3em white;/**@todo only in big screen**/
+    color: #040404;
+    background-color: #f2f2f2;
+    text-shadow: 0.1em 0.2em 0.3em #040404;/**@todo only in big screen**/
 }
 /**end menu**/
 
@@ -87,15 +101,16 @@ nav ul li a:hover {
 
 #navigator li {
 	list-style: outside none none;
-	background-color: white;
+	background-color: #f2f2f2;
     margin: 5px;
 }
 
 /**footer**/
 footer {
-	background-color: black;
-	color: white;
+	background-color: #040404;
+	color: #f2f2f2;
 	margin: auto;
+	text-align: center;
 }
 footer a {
 	text-decoration:none;  
@@ -115,13 +130,16 @@ footer div {
 	float: left;
 	padding: 25px;
 }
+.footer_div div b{
+	pading-bottom: 5px;
+}
 /**end footer**/
 
 /**formulario de comentario input y textarea**/
 #commentform * { margin: 5px 5px;}
 input[type="submit"]:hover {	background-color: orange; text-shadow: 0.1em 0.2em 0.3em white;/**@todo only in big screen**/	}
 input[type="submit"] {
-	color: white;
+	color: #f2f2f2;
 	border-radius: 2px;
 	padding: 10px 15px;
 	background-color: black;
@@ -137,4 +155,34 @@ textarea, input {
 }
 textarea {	width: 100%;}
 
-
+/*header video*/
+.no-video .video-container video,
+.touch .video-container video {
+    display: none;
+}
+.no-video .video-container .poster,
+.touch .video-container .poster {
+    display: block !important;
+}
+.video-container {
+    position: relative;
+    bottom: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: #000;
+}
+.video-container video.fillWidth {
+    width: 100%;
+    position: absolute;
+    z-index: 10;
+}
+/*header video*/
+.redonded_div:hover{
+	background-color: black;
+	color: white;
+	-webkit-box-shadow: 5px 5px 5px 0px rgba(161,161,161,1);
+	-moz-box-shadow: 5px 5px 5px 0px rgba(161,161,161,1);
+	box-shadow: 5px 5px 5px 0px rgba(161,161,161,1);
+}

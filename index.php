@@ -27,10 +27,18 @@ along with Vertical-Ascent. If not, see <http://www.gnu.org/licenses/>.
 			continue;
 		$content = apply_filters( 'the_content', $content );
 		array_push($array_id,$page->ID);
-	?>
-		<article  class="fondo_imagen"  style="background-image: url(<?php if (get_header_image() != '') header_image(); else echo 'https://source.unsplash.com/category/buildings' ?>)">
-			 <header><h1><a href="<?php echo get_page_link( $page->ID );?>"><?php echo $page->post_title; ?></a></h1></header>	
-			 <div id="<?php echo $page->ID; ?>"> <!-- class="entry" style="background-color: red;">  -->
+		//if has a template, it will have a photo background.
+		if ( get_page_template_slug($page->ID) ){ ?>
+		<article  class="fondo_imagen" style="background-image: url(<?php if (has_post_thumbnail( $page->ID )) 
+																	echo wp_get_attachment_image_src( get_post_thumbnail_id( $page->ID ), 'single-post-thumbnail' )[0]; 
+																else echo 'https://source.unsplash.com/category/buildings' ?>)">
+		<?php } else { ?>
+		<article  class="fondo_imagen"> 
+		<?php }//end else ?>														
+			 <header>
+			 	<h1><a href="<?php echo get_page_link( $page->ID );?>"><?php echo $page->post_title; ?></a></h1>
+			 </header>	
+			 <div class="article_body" id="<?php echo $page->ID; ?>">
 		     	<?php echo $content; ?>
 		     </div>
 		</article>
@@ -39,10 +47,11 @@ along with Vertical-Ascent. If not, see <http://www.gnu.org/licenses/>.
   error_log(implode(",",$array_id));
 ?>
   </section>
+  <!-- 
   <ul id="navigator">
   <?php
-  	foreach ($array_id as $id)
-  		echo "<li><a href=\"#$id\">$id</a></li>"
+  	//foreach ($array_id as $id)
+  	//	echo "<li><a href=\"#$id\">$id</a></li>"
   ?>
-  </ul>
+  </ul> -->
 <?php get_footer(); ?>
