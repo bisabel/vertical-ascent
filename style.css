@@ -62,29 +62,55 @@ section {
 /**menu**/
 nav ul {
 	background-color: #040404;
-	padding: 24px;
+	padding: 24px 0px;
 }
-
 @media only screen and (min-width: 640px) { 
-nav ul li {	display: inline;}
+	nav ul li {	display: inline;}
 }
 @media only screen and (max-width: 640px) { 
-nav ul li {	display: flex;}
-.menu { top: 0; left : 0; position: absolute;}
-.menu {visibility: hidden; }
-}
-
-nav ul li a{
+	nav ul li {	display: flex;}
+	.menu { top: 0; left : 0; position: absolute;}
+	.menu {visibility: hidden; }
+} 
+nav ul li {
     color: #f2f2f2;
-    padding: 10px 20px;
+    padding: 24px;
+    position: relative;
+}
+nav ul li a{
     text-decoration: none;
+    color: #f2f2f2;
 }
 
-nav ul li a:hover {
+.sub-menu li:hover,
+nav ul li:hover {
+	    background-color: #f2f2f2;
+}
+.sub-menu li:hover a,
+nav ul li:hover a{
     color: #040404;
-    background-color: #f2f2f2;
     text-shadow: 0.1em 0.2em 0.3em #040404;/**@todo only in big screen**/
 }
+nav ul li:hover ul, 
+nav ul li:hover ul li, 
+nav ul li:focus ul, 
+nav ul li:focus ul li {visibility: visible; background-color: #040404;}
+nav ul li:hover ul li a,
+nav ul li:focus ul li a{visibility: visible; color: #f2f2f2;}
+nav ul li:focus .sub-menu,
+nav ul li:hover .sub-menu {position: relative;}
+
+.sub-menu {   
+	float: left;
+    padding: 0;
+    position: absolute;
+    top: 24px;
+    width: 100%;
+    visibility: hidden;
+}
+.sub-menu li { position: static; float: left;}
+
+
 /**end menu**/
 
 #navigator {

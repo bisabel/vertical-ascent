@@ -20,36 +20,46 @@
 <html <?php language_attributes(); ?>>
 
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<title><?php if (is_home () ) { echo bloginfo('name'); echo ' | '; bloginfo('description'); }
+	<meta charset=	<?php bloginfo( 'charset' ); ?>">
+	<title><?php if (is_home () ) { echo bloginfo('description'); echo ' | '; bloginfo('name'); }
 	 			 elseif ( is_category() ) { single_cat_title(); echo ' | ' ; echo bloginfo('name'); }
 	 			 elseif (is_single() || is_page()) { single_post_title(); echo ' | ' ; echo bloginfo('name'); }
 	 			 else { wp_title('',true); } ?>
 	</title>
-	<!-- for seo -->
-	<meta name="description" content="<?php if ( is_single() ) {
-        	single_post_title('', true); 
-    	} else {
-        	bloginfo('name'); echo " - "; bloginfo('description');
-    	}
-    ?>" />
+
 	<!-- Definir viewport para dispositivos web móviles -->
 	<meta name="viewport" content="width=device-width, minimum-scale=1">
+
 	<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" />
 	<link rel="stylesheet" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
+
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	<script type="text/javascript">
-		var elementPosition = $('.menu').offset;
-		$(window).scroll(function(){
-		        if($(window).scrollTop() > elementPosition.top){
-		              $('.menu').css('position','fixed').css('top','0');
-		        } else {
-		            $('.menu').css('position','static');
-		        }    
-		});
+		//jQuery is required to run this code
+		window.onscroll = function (e) {
+			if ( window.scrollY > $(main).position().top - $(navegador).outerHeight() ){				
+				console.log( "scroll: " + window.scrollY + " navegador: " + $(navegador).outerHeight() + " aux:" + $(navegadoraux).outerHeight() );
+				$(navegadoraux).height($(navegador).outerHeight()+"px");
+				$(navegador).css({ 
+				    position: "fixed",
+				    top: 0, left: 0,
+				    marginLeft: 0, marginTop: 0,
+				    zIndex: 50,
+				});
+				$(navegador).width('100%')
+				
+			} else {
+				$(navegadoraux).height("0px");
+				$(navegador).css({ 
+				    position: "relative",
+				    zIndex: 50,
+				});
+			}     
+		}
 	</script>
 	<?php wp_head(); ?>
+
 </head>
 <body>
 	<?php if ( is_home() ) { ?>
@@ -64,21 +74,18 @@
 						<h3 class="blog-description"><?php echo esc_attr( get_bloginfo( 'description' ) ); ?></h3>
 					<?php } ?>
 				</div>
-	        	<video autoplay loop class="fillWidth">
-	            	<source src="<?php echo get_template_directory_uri()?>/videos/clothes/MP4/clothing.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
-	            	<source src="<?php echo get_template_directory_uri()?>/videos/clothes/WEBM/clothing.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
+	        	<video poster="<?php if (is_file(get_template_directory()."/videos/In-The-Clouds/snapshots/In-The-Clouds.jpg")) echo get_template_directory_uri()."/videos/clothes/snapshots/clothing.jpg";
+	        						 else if (get_header_image() != '') header_image();
+	        						 else echo 'https://source.unsplash.com/category/nature'; ?>"
+	        						 autoplay loop class="fillWidth">
+	            	<source src="<?php echo get_template_directory_uri()?>/videos/In-The-Clouds/MP4/In-The-Clouds.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
+	            	<source src="<?php echo get_template_directory_uri()?>/videos/In-The-Clouds/WEBM/In-The-Clouds.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
 	        	</video>
-	        	<div class="poster hidden">
-	            	<img src="<?php echo( get_header_image() ); ?>" alt="">
-		    	</div>
-		    	<div style="bottom: 30px;left: 0;position: absolute;right: 0;text-align: center;">
-		    		<img alt="arrow" src="<?php echo get_template_directory_uri()?>/images/arrow.png">
-		    	</div>
 		    </header>		    	
 		</div>
 	</div>
 	<?php }//end if( is_home() )?>
-	<div>
-		<?php wp_nav_menu( array('menu' => 'Main', 'container' => 'nav' )); ?>
+	<div id="navegadoraux" style=" height: 0px"></div>
+	<div id="navegador">
+		<?php wp_nav_menu( array( 'container' => 'nav' )); ?>
 	</div>
-
