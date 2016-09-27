@@ -57,6 +57,19 @@
 				});
 			}     
 		}
+		
+		function clicktogglebutton(){
+			//alert('ola');
+			if ( $('#menu-all-pages').css('visibility') == 'hidden'){
+				$('#menu-all-pages').css('visibility','unset');
+				$('.sub-menu').css('visibility','unset');
+			}
+			else {
+				$('#menu-all-pages').css('visibility','hidden');
+				$('.sub-menu').css('visibility','hidden');
+			}
+				
+		}	
 	</script>
 	<?php wp_head(); ?>
 
@@ -87,5 +100,10 @@
 	<?php }//end if( is_home() )?>
 	<div id="navegadoraux" style=" height: 0px"></div>
 	<div id="navegador">
-		<?php wp_nav_menu( array( 'container' => 'nav' )); ?>
+		<button class="toggle-button" type="button" onclick="clicktogglebutton()">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<?php wp_nav_menu( array( 'container' => 'nav', 'depth' => 2 )); ?>
 	</div>

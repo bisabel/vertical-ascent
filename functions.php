@@ -35,6 +35,11 @@ if ( version_compare( $wp_version, '3.4', '>=' ) ) {
 //load the specific javascript's file of the theme
 wp_enqueue_script( 'my-ascending-themecustomize', get_template_directory_uri().'/js/theme-customize.js', array('jquery'), '', true);
 
+/**
+ * @author bisabel
+ * @param unknown $page_id
+ * @return string
+ */
 function get_article_html($page_id){
 	$header_html = "<article  class=\"fondo_imagen\" >";
 	if ( get_page_template_slug($page_id) ){

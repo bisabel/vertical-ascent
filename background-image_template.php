@@ -19,10 +19,10 @@ along with Vertical-Ascent. If not, see <http://www.gnu.org/licenses/>.
 */
 ?>
 <?php get_header();?> 
-<section> 
+<section id="main"> 
 	<?php while ( have_posts() ) : the_post();
-	echo get_article_html($post->ID); ?>	
-		<header><?php single_post_title()?></header>
+	echo get_article_html($post->ID); ?>
+		<header><h1><?php single_post_title()?></h1></header>
 		<?php //get_template_part( 'content', 'page' );?>
 		<div class="article_body" id="<?php echo $post->ID; ?>">
 		<?php the_content(); ?>
