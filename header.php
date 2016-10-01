@@ -60,12 +60,12 @@
 		
 		function clicktogglebutton(){
 			//alert('ola');
-			if ( $('#menu-all-pages').css('visibility') == 'hidden'){
-				$('#menu-all-pages').css('visibility','unset');
+			if ( $('#menu-with-pages').css('visibility') == 'hidden'){
+				$('#menu-with-pages').css('visibility','unset');
 				$('.sub-menu').css('visibility','unset');
 			}
 			else {
-				$('#menu-all-pages').css('visibility','hidden');
+				$('#menu-with-pages').css('visibility','hidden');
 				$('.sub-menu').css('visibility','hidden');
 			}
 				
@@ -105,5 +105,5 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</button>
-		<?php wp_nav_menu( array( 'container' => 'nav', 'depth' => 2 )); ?>
+		<?php wp_nav_menu( array( 'container' => 'nav', 'depth' => 2 ,'menu_id' => 'menu-with-pages')); ?>
 	</div>
