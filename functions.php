@@ -51,3 +51,89 @@ function get_article_html($page_id){
 	}
 	return $header_html;
 }
+
+add_action( 'customize_register' , 'vertical_ascent_options' );
+
+function vertical_ascent_options( $wp_customize ) {
+	$wp_customize->add_section(
+		'vertical_ascent_footer_options',
+		array(
+			'title'       => __( 'Footer Settings', 'vertical_ascent' ),
+			'priority'    => 100,
+			'capability'  => 'edit_theme_options',
+			'description' => __('Change footer options here.', 'vertical_ascent'),
+		)
+	);
+	$wp_customize->add_setting( 'footer_textarea', array() );
+	$wp_customize->add_setting( 'footer_text', array() );
+	$wp_customize->add_setting( 'footer_textarea2', array() );
+	$wp_customize->add_setting( 'footer_text2', array() );
+	$wp_customize->add_setting( 'footer_textarea3', array() );
+	$wp_customize->add_setting( 'footer_text3', array() );
+	$wp_customize->add_control( new WP_Customize_Control(
+		$wp_customize,
+		'footer_text_control',
+		array(
+			'label'          => __( 'Titulo del primer apartado', 'vertical_ascent' ),
+			'section'        => 'vertical_ascent_footer_options',
+			'settings'       => 'footer_text',
+			'type'           => 'text'
+		)
+		)
+	);
+	$wp_customize->add_control( new WP_Customize_Control(
+		$wp_customize,
+		'footer_textarea_control',
+		array(
+			'label'          => __( 'Texto del primer apartado', 'vertical_ascent' ),
+			'section'        => 'vertical_ascent_footer_options',
+			'settings'       => 'footer_textarea',
+			'type'           => 'textarea'
+		)
+		)
+	);
+	$wp_customize->add_control( new WP_Customize_Control(
+		$wp_customize,
+		'footer_text_control2',
+		array(
+				'label'          => __( 'Titulo del segundo apartado', 'vertical_ascent' ),
+				'section'        => 'vertical_ascent_footer_options',
+				'settings'       => 'footer_text2',
+				'type'           => 'text'
+		)
+		)
+	);
+	$wp_customize->add_control( new WP_Customize_Control(
+		$wp_customize,
+		'footer_textarea_control2',
+		array(
+				'label'          => __( 'Texto del segundo apartado', 'vertical_ascent' ),
+				'section'        => 'vertical_ascent_footer_options',
+				'settings'       => 'footer_textarea2',
+				'type'           => 'textarea'
+		)
+		)
+	);
+	$wp_customize->add_control( new WP_Customize_Control(
+		$wp_customize,
+		'footer_text_control3',
+		array(
+				'label'          => __( 'Titulo del tercer apartado', 'vertical_ascent' ),
+				'section'        => 'vertical_ascent_footer_options',
+				'settings'       => 'footer_text3',
+				'type'           => 'text'
+		)
+		)
+	);
+	$wp_customize->add_control( new WP_Customize_Control(
+		$wp_customize,
+		'footer_textarea_control3',
+		array(
+				'label'          => __( 'Texto del tercer apartado', 'vertical_ascent' ),
+				'section'        => 'vertical_ascent_footer_options',
+				'settings'       => 'footer_textarea3',
+				'type'           => 'textarea'
+		)
+		)
+	);
+}

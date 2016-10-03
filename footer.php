@@ -17,9 +17,9 @@ along with Vertical-Ascent. If not, see <http://www.gnu.org/licenses/>.
 ?>
 <footer>
 	<div class="footer_div">
-		<div><h4>Contact</h4><br><p>Phone: 1234567<br>Mail: yourname@company.com</p></div>
-		<div><h4>Open Hour</h4><br><p>L-V: 9:00-14:00<br> and 17:00-20:30</p></div>
-		<div><h4>Address</h4><br><p>Street Name<br>City (Country)</p></div>
+		<div><h4><?php echo get_theme_mod('footer_text'); ?></h4><br><p><?php echo get_theme_mod('footer_textarea');?></p></div>
+		<div><h4><?php echo get_theme_mod('footer_text2'); ?></h4><br><p><?php echo get_theme_mod('footer_textarea2');?></p></div>
+		<div><h4><?php echo get_theme_mod('footer_text3'); ?></h4><br><p><?php echo get_theme_mod('footer_textarea3');?></p></div>
 	</div>	
 	<div style="border-top: 2px solid #f2f2f2;"><p>Copyright © <?=date('Y');?> <?php bloginfo('name'); ?>. Using <a href="https://github.com/bisabel/vertical-ascent"><strong>Vertical-Ascend</strong></a> a wordpress theme</p></div>
 </footer>
