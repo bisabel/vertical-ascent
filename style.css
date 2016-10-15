@@ -16,7 +16,7 @@ html, body, body * { margin:0; padding:0; font-family: 'Gotham SSm A','Gotham Bo
 	h1{	font-size: 32px;}
 	h3{	font-size: 16px;}
 }
-a { text-decoration:none; color: #040404;}
+a { text-decoration:none; }/** color: #040404;**/
 
 @media only screen and (min-width: 1040px) { 
 	article > *, footer div { max-width: 1040px; margin: 0 auto;}
@@ -49,7 +49,7 @@ section {
 
 /**la cebecera de todas las paginas**/
 #header-main {
-	background-color: #040404;
+/*	background-color: #040404;*/
     color: #f2f2f2;
     display: block;
     padding: 30px;
@@ -68,11 +68,11 @@ section {
 }
 
 /**--------------menu----------------------------------------------------**/
-#navegador{	background-color: #040404;}
+/*#navegador{	background-color: #040404;}*/
 nav ul{
 	padding: 24px 0px;
 }
-.menu { background-color: #040404;}
+/*.menu { background-color: #040404;}*/
 
 nav ul li {  color: #f2f2f2;}
 nav ul li a{
@@ -92,15 +92,15 @@ nav ul li a{
        nav ul li:hover {
 	    background-color: #f2f2f2;
 	}
-	.sub-menu li:hover a,
+/*	.sub-menu li:hover a,
 	   nav ul li:hover a{
     	color: #040404;
-    	text-shadow: 0.1em 0.2em 0.3em #040404;/**@todo only in big screen**/
-	}
+    	text-shadow: 0.1em 0.2em 0.3em #040404;
+/*	}
 	nav ul li:hover ul, 
 	nav ul li:hover ul li, 
 	nav ul li:focus ul, 
-	nav ul li:focus ul li {visibility: visible; background-color: #040404;}
+	nav ul li:focus ul li {visibility: visible; background-color: #040404;}*/
 	nav ul li:hover ul li a,
 	nav ul li:focus ul li a{visibility: visible; color: #f2f2f2;}
 	nav ul li:focus .sub-menu,
@@ -167,7 +167,7 @@ nav ul li a{
 
 /**-----------footer-----------------------------------**/
 footer {
-	background-color: #040404;
+/*	background-color: #040404;*/
 	color: #f2f2f2;
 	margin: auto;
 	text-align: center;

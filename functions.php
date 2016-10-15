@@ -136,4 +136,45 @@ function vertical_ascent_options( $wp_customize ) {
 		)
 		)
 	);
+	
+	$wp_customize->add_section(
+			'vertical_ascent_menu_options_section',
+			array(
+					'title'       => __( 'Menu Settings', 'vertical_ascent' ),
+					'priority'    => 100,
+			)
+			);
+	//menu
+	$wp_customize->add_setting('vertical_ascent_menu_options',	array());
+	$menus = get_terms( 'nav_menu', array( 'hide_empty' => true ) );
+	$mis_menus = array();
+	foreach ( $menus as $location => $description ) {
+		$mis_menus[$description->term_id] = $description->name;
+	}
+	 
+    $wp_customize->add_control( 
+    	'vertical_ascent_menu', 
+    	array(
+	        'settings'=> 'vertical_ascent_menu_options',
+	        'label'          => __( 'Select menu', 'vertical_ascent' ),
+	        'section' => 'vertical_ascent_menu_options_section',
+	        'type'    => 'select',
+	        'choices' => $mis_menus
+    	)
+    );
+    
+    $wp_customize->add_setting( 'vertical_ascent_background_color_option' , array(
+    		'default'     => '#000000',
+    		'transport'   => 'refresh',
+    ) );
+    $wp_customize->add_control(
+    	new WP_Customize_Color_Control(
+    		$wp_customize,
+    		'vertical_ascent_background_color',
+    		array(
+    			'label'      => __( 'Background color', 'vertical_ascent' ),
+    			'section'    => 'colors',
+    			'settings'   => 'vertical_ascent_background_color_option',
+    	) )
+    );
 }

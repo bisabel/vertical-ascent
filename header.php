@@ -20,7 +20,7 @@
 <html <?php language_attributes(); ?>>
 
 <head>
-	<meta charset=	<?php bloginfo( 'charset' ); ?>">
+	<meta charset=	"<?php bloginfo( 'charset' ); ?>">
 	<title><?php if (is_home () ) { echo bloginfo('description'); echo ' | '; bloginfo('name'); }
 	 			 elseif ( is_category() ) { single_cat_title(); echo ' | ' ; echo bloginfo('name'); }
 	 			 elseif (is_single() || is_page()) { single_post_title(); echo ' | ' ; echo bloginfo('name'); }
@@ -32,6 +32,28 @@
 
 	<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" />
 	<link rel="stylesheet" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
+	<style type="text/css">
+	.header_textcolor,a { 
+		color: #<?php echo get_theme_mod('header_textcolor');?> 
+	}
+	.background_color, #header-main, #navegador, footer, .menu { 
+		background-color: <?php echo get_theme_mod('vertical_ascent_background_color_option');?> 
+	}
+	@media only screen and (min-width: 640px) {
+		nav ul li:hover a,
+		.sub-menu li:hover a{
+    		color: <?php echo get_theme_mod('vertical_ascent_background_color_option');?> ;
+    		text-shadow: 0.1em 0.2em 0.3em <?php echo get_theme_mod('vertical_ascent_background_color_option');?>;
+		}
+		nav ul li:hover ul, 
+		nav ul li:hover ul li, 
+		nav ul li:focus ul, 
+		nav ul li:focus ul li {
+			visibility: visible; 
+			background-color: <?php echo get_theme_mod('vertical_ascent_background_color_option');?> ;
+		}
+	}
+	</style>
 
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
@@ -70,6 +92,10 @@
 			}
 				
 		}	
+		$( document ).ready(function() {
+			var video = document.getElementById('video');
+			video.play();
+		});
 	</script>
 	<?php wp_head(); ?>
 
@@ -84,13 +110,13 @@
 						<a style="text-decoration:none;color: white;" href="<?php echo esc_url( home_url() ); ?>" title="<?php echo esc_attr( get_bloginfo( 'title' ) ); ?> &mdash; <?php echo esc_attr( get_bloginfo( 'description' ) ); ?>" rel="home"><?php echo esc_attr( get_bloginfo( 'title' ) ); ?></a>
 					</h1>
 					<?php if ( get_bloginfo( 'description' ) ) { ?>
-						<h3 class="blog-description"><?php echo esc_attr( get_bloginfo( 'description' ) ); ?></h3>
+						<h3 class="blog-description header_textcolor"><?php echo esc_attr( get_bloginfo( 'description' ) ); ?></h3>
 					<?php } ?>
 				</div>
 	        	<video poster="<?php if (is_file(get_template_directory()."/videos/In-The-Clouds/snapshots/In-The-Clouds.jpg")) echo get_template_directory_uri()."/videos/clothes/snapshots/clothing.jpg";
 	        						 else if (get_header_image() != '') header_image();
 	        						 else echo 'https://source.unsplash.com/category/nature'; ?>"
-	        						 autoplay loop class="fillWidth">
+	        						 autobuffer loop class="fillWidth" id="video" >
 	            	<source src="<?php echo get_template_directory_uri()?>/videos/In-The-Clouds/MP4/In-The-Clouds.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
 	            	<source src="<?php echo get_template_directory_uri()?>/videos/In-The-Clouds/WEBM/In-The-Clouds.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
 	        	</video>
@@ -105,5 +131,5 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</button>
-		<?php wp_nav_menu( array( 'container' => 'nav', 'depth' => 2 ,'menu_id' => 'menu-with-pages')); ?>
+		<?php wp_nav_menu( array( 'menu' => get_theme_mod( 'vertical_ascent_menu_options' ), 'container' => 'nav', 'depth' => 2 ,'menu_id' => 'menu-with-pages')); ?>
 	</div>

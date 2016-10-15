@@ -19,14 +19,22 @@ along with Vertical-Ascent. If not, see <http://www.gnu.org/licenses/>.
 <?php get_header(); ?>
 	<section id="main">
 <?php //get_sidebar()
-  $pages = get_pages(); 
-  $array_id = array();
+	if (get_theme_mod( 'vertical_ascent_menu_options' ) )
+  		$pages = wp_get_nav_menu_items( get_theme_mod( 'vertical_ascent_menu_options' ));
+	else
+		$pages = array();
+  //$pages = get_pages(); 
   foreach ( $pages as $page ) {
+  	$numbers[] = get_post_meta( $page->ID, $key = '', false );
+  	for ($row = 0; $row < sizeof($numbers) ; $row++) {
+  		if ( $numbers[$row]['_menu_item_type'][0] == 'post_type' || $numbers[$row]['_menu_item_type'][0] == 'page')
+  			$page = get_post($numbers[$row]['_menu_item_object_id'][0]);
+  	}
+  	 	 
   	$content = $page->post_content;  	
 		if ( ! $content ) // Check for empty page
 			continue;
 		$content = apply_filters( 'the_content', $content );
-		array_push($array_id,$page->ID);
 		//if has a template, it will have a photo background.
 		if ( get_page_template_slug($page->ID) ){ ?>
 		<article  class="fondo_imagen" style="background-image: url(<?php if (has_post_thumbnail( $page->ID )) 
@@ -36,7 +44,7 @@ along with Vertical-Ascent. If not, see <http://www.gnu.org/licenses/>.
 		<article  class="fondo_imagen"> 
 		<?php }//end else ?>														
 			 <header>
-			 	<h1><a href="<?php echo get_page_link( $page->ID );?>"><?php echo $page->post_title; ?></a></h1>
+			 	<h1><a href="<?php echo get_page_link( $page->ID );?>" style="color:<?php echo get_theme_mod('vertical_ascent_background_color_option');?>" ><?php echo $page->post_title; ?></a></h1>
 			 </header>	
 			 <div class="article_body" id="<?php echo $page->ID; ?>">
 		     	<?php echo $content; ?>
@@ -44,14 +52,6 @@ along with Vertical-Ascent. If not, see <http://www.gnu.org/licenses/>.
 		</article>
 <?php  
   }//end foreach 
-  error_log(implode(",",$array_id));
 ?>
   </section>
-  <!-- 
-  <ul id="navigator">
-  <?php
-  	//foreach ($array_id as $id)
-  	//	echo "<li><a href=\"#$id\">$id</a></li>"
-  ?>
-  </ul> -->
 <?php get_footer(); ?>
