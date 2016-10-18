@@ -33,24 +33,24 @@
 	<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" />
 	<link rel="stylesheet" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 	<style type="text/css">
-	.header_textcolor,a { 
-		color: #<?php echo get_theme_mod('header_textcolor');?> 
+	.header_textcolor, a { 
+		color: #<?php echo get_theme_mod('header_textcolor','ffffff');?> 
 	}
 	.background_color, #header-main, #navegador, footer, .menu { 
-		background-color: <?php echo get_theme_mod('vertical_ascent_background_color_option');?> 
+		background-color: <?php echo get_theme_mod('vertical_ascent_background_color_option','#000000');?> 
 	}
 	@media only screen and (min-width: 640px) {
 		nav ul li:hover a,
 		.sub-menu li:hover a{
-    		color: <?php echo get_theme_mod('vertical_ascent_background_color_option');?> ;
-    		text-shadow: 0.1em 0.2em 0.3em <?php echo get_theme_mod('vertical_ascent_background_color_option');?>;
+    		color: <?php echo get_theme_mod('vertical_ascent_background_color_option','#000000');?> ;
+    		text-shadow: 0.1em 0.2em 0.3em <?php echo get_theme_mod('vertical_ascent_background_color_option','#000000');?>;
 		}
 		nav ul li:hover ul, 
 		nav ul li:hover ul li, 
 		nav ul li:focus ul, 
 		nav ul li:focus ul li {
 			visibility: visible; 
-			background-color: <?php echo get_theme_mod('vertical_ascent_background_color_option');?> ;
+			background-color: <?php echo get_theme_mod('vertical_ascent_background_color_option','#000000');?> ;
 		}
 	}
 	</style>

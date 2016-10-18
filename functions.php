@@ -38,7 +38,7 @@ wp_enqueue_script( 'my-ascending-themecustomize', get_template_directory_uri().'
 /**
  * @author bisabel
  * @param unknown $page_id
- * @return string
+ * @return string html code depending on the template page
  */
 function get_article_html($page_id){
 	$header_html = "<article  class=\"fondo_imagen\" >";
@@ -58,10 +58,10 @@ function vertical_ascent_options( $wp_customize ) {
 	$wp_customize->add_section(
 		'vertical_ascent_footer_options',
 		array(
-			'title'       => __( 'Footer Settings', 'vertical_ascent' ),
+			'title'       => __( 'Footer Text', 'vertical_ascent' ),
 			'priority'    => 100,
 			'capability'  => 'edit_theme_options',
-			'description' => __('Change footer options here.', 'vertical_ascent'),
+			'description' => __('Write the footer\'s text here.', 'vertical_ascent'),
 		)
 	);
 	$wp_customize->add_setting( 'footer_textarea', array() );
@@ -74,7 +74,7 @@ function vertical_ascent_options( $wp_customize ) {
 		$wp_customize,
 		'footer_text_control',
 		array(
-			'label'          => __( 'Titulo del primer apartado', 'vertical_ascent' ),
+			'label'          => __( 'First title', 'vertical_ascent' ),
 			'section'        => 'vertical_ascent_footer_options',
 			'settings'       => 'footer_text',
 			'type'           => 'text'
@@ -85,7 +85,7 @@ function vertical_ascent_options( $wp_customize ) {
 		$wp_customize,
 		'footer_textarea_control',
 		array(
-			'label'          => __( 'Texto del primer apartado', 'vertical_ascent' ),
+			'label'          => __( 'First textarea', 'vertical_ascent' ),
 			'section'        => 'vertical_ascent_footer_options',
 			'settings'       => 'footer_textarea',
 			'type'           => 'textarea'
@@ -96,7 +96,7 @@ function vertical_ascent_options( $wp_customize ) {
 		$wp_customize,
 		'footer_text_control2',
 		array(
-				'label'          => __( 'Titulo del segundo apartado', 'vertical_ascent' ),
+				'label'          => __( 'Second title', 'vertical_ascent' ),
 				'section'        => 'vertical_ascent_footer_options',
 				'settings'       => 'footer_text2',
 				'type'           => 'text'
@@ -107,7 +107,7 @@ function vertical_ascent_options( $wp_customize ) {
 		$wp_customize,
 		'footer_textarea_control2',
 		array(
-				'label'          => __( 'Texto del segundo apartado', 'vertical_ascent' ),
+				'label'          => __( 'Second textarea', 'vertical_ascent' ),
 				'section'        => 'vertical_ascent_footer_options',
 				'settings'       => 'footer_textarea2',
 				'type'           => 'textarea'
@@ -118,7 +118,7 @@ function vertical_ascent_options( $wp_customize ) {
 		$wp_customize,
 		'footer_text_control3',
 		array(
-				'label'          => __( 'Titulo del tercer apartado', 'vertical_ascent' ),
+				'label'          => __( 'Third title', 'vertical_ascent' ),
 				'section'        => 'vertical_ascent_footer_options',
 				'settings'       => 'footer_text3',
 				'type'           => 'text'
@@ -129,7 +129,7 @@ function vertical_ascent_options( $wp_customize ) {
 		$wp_customize,
 		'footer_textarea_control3',
 		array(
-				'label'          => __( 'Texto del tercer apartado', 'vertical_ascent' ),
+				'label'          => __( 'Third textarea', 'vertical_ascent' ),
 				'section'        => 'vertical_ascent_footer_options',
 				'settings'       => 'footer_textarea3',
 				'type'           => 'textarea'
@@ -140,8 +140,9 @@ function vertical_ascent_options( $wp_customize ) {
 	$wp_customize->add_section(
 			'vertical_ascent_menu_options_section',
 			array(
-					'title'       => __( 'Menu Settings', 'vertical_ascent' ),
+					'title'       => __( 'Main Menu', 'vertical_ascent' ),
 					'priority'    => 100,
+					'description'  => __('Set the menu for the navigation tool bar here.', 'vertical_ascent'),
 			)
 			);
 	//menu
@@ -156,7 +157,7 @@ function vertical_ascent_options( $wp_customize ) {
     	'vertical_ascent_menu', 
     	array(
 	        'settings'=> 'vertical_ascent_menu_options',
-	        'label'          => __( 'Select menu', 'vertical_ascent' ),
+	        'label'   => __( 'Select menu', 'vertical_ascent' ),
 	        'section' => 'vertical_ascent_menu_options_section',
 	        'type'    => 'select',
 	        'choices' => $mis_menus

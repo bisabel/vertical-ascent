@@ -1,10 +1,12 @@
 /*
-Theme Name: Vertical Ascent
-Theme URI: https://github.com/bisabel/vertical-ascent
-Description: Tema de wordpress donde se apilan todas las paginas en una
-Author: bisabel
-Author URI: http://es.linkedin.com/in/bisabel
-Version: 1.0
+	Theme Name: Vertical Ascent
+	Theme URI: https://github.com/bisabel/vertical-ascent
+	Version: 1.0
+	Author: bisabel
+	Author URI: http://es.linkedin.com/in/bisabel
+	Description: In this wordpress theme, all the pages (that you choose) are stacked on the home page, so the visitors can look all the content just scrolling although each of the pages can be access individually from the menu bar o title for look the comments or other specific things. This theme has two extra page templates: background image and blank
+	Tags: black, green, white, light, dark, vertical, scroll, all-in-one, fluid-layout, responsive-layout, custom-header, custom-menu, custom-colors.
+
 */
 
 html, body, body * { margin:0; padding:0; font-family: 'Gotham SSm A','Gotham Book','Arial','sans-serif';}
@@ -19,7 +21,7 @@ html, body, body * { margin:0; padding:0; font-family: 'Gotham SSm A','Gotham Bo
 a { text-decoration:none; }/** color: #040404;**/
 
 @media only screen and (min-width: 1040px) { 
-	article > *, footer div { max-width: 1040px; margin: 0 auto;}
+	article:not(.article_blank_body) > *, footer div { max-width: 1040px; margin: 0 auto;}
 	article header { padding-top: 10px; width: 90%; max-width: 1600px;font-size: 30px; line-height: normal; text-transform: uppercase;}
 	.article_body {	padding: 15px 0px;} 
 }
