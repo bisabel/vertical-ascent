@@ -178,4 +178,22 @@ function vertical_ascent_options( $wp_customize ) {
     			'settings'   => 'vertical_ascent_background_color_option',
     	) )
     );
+    
+    $wp_customize->add_setting( 'vertical_ascent_select_video_or_image_setting' , array(
+    		'default'     => 'video')
+    );
+    $wp_customize->add_control(
+    		'vertical_ascent_select_video_or_image',
+    		array(
+    				'label'    => __( 'Do you want video or image header?', 'mytheme' ),
+    				'section'  => 'header_image',
+    				'settings' => 'vertical_ascent_select_video_or_image_setting',
+    				'type'     => 'radio',
+    				'priority' => 1,
+    				'choices'  => array(
+    						'video'  => 'video',
+    						'image' => 'image',
+    				),
+    		)
+    		);
 }

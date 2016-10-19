@@ -58,7 +58,7 @@ section {
     text-align: center;
     max-width: 450px;
     position: absolute;
-    top: 200px;
+    top: 40vh;
 	left: 0;
     right: 0;
     margin-left: auto;
@@ -68,7 +68,22 @@ section {
 #header-main h1 {
 	padding: 20px;
 }
-
+.image-header {
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-color: white;
+	bottom: 0;
+    height: 100%;
+    left: 0;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
 /**--------------menu----------------------------------------------------**/
 /*#navegador{	background-color: #040404;}*/
 nav ul{
@@ -93,6 +108,9 @@ nav ul li a{
 	.sub-menu li:hover, 
        nav ul li:hover {
 	    background-color: #f2f2f2;
+	}
+	#title_movil{
+		display: none;
 	}
 /*	.sub-menu li:hover a,
 	   nav ul li:hover a{
@@ -121,13 +139,18 @@ nav ul li a{
 	.menu { visibility: hidden; left : 0; position: absolute; width: 100%; padding: 0}
 	.toggle-button { 
 		padding: 20px;
-		display: block;
+		display: inline-block;
 	    background-color: Transparent;
 	    border: none;
+	}
+	#title_movil{/**this became visible by javascript action**/
+		display: inline-block;
+		visibility: hidden;
 	}
 	.blog-name-menu { display: flex; color: white}
 	.sub-menu li a { padding-left: 30px;}
 }
+
 .icon-bar {  
 	background-color: #fff;
 	border-radius: 1px;

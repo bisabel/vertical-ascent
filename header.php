@@ -69,7 +69,8 @@
 				    marginLeft: 0, marginTop: 0,
 				    zIndex: 50,
 				});
-				$(navegador).width('100%')
+				$(navegador).width('100%');
+				$(title_movil).css('visibility','unset');
 				
 			} else {
 				$(navegadoraux).height("0px");
@@ -77,11 +78,11 @@
 				    position: "relative",
 				    zIndex: 50,
 				});
+				$(title_movil).css('visibility','hidden');
 			}     
 		}
 		
 		function clicktogglebutton(){
-			//alert('ola');
 			if ( $('#menu-with-pages').css('visibility') == 'hidden'){
 				$('#menu-with-pages').css('visibility','unset');
 				$('.sub-menu').css('visibility','unset');
@@ -104,7 +105,12 @@
 	<?php if ( is_home() ) { ?>
 	<div class="header-cover section bg-dark-light no-padding">
 		<div class="homepage-hero-module">
-	    	<header class="video-container">
+		    <?php if ( get_theme_mod('vertical_ascent_select_video_or_image_setting','video') == 'image'){?>
+	    	<header class="image-header" style=" background-image:url(<?php if (get_header_image() != '') header_image(); 
+	            														 else echo 'https://source.unsplash.com/category/nature'; ?>);">
+	        <?php  } else {?>
+	        <header class="video-container">
+	        <?php  } ?> 	
 	    		<div id="header-main">
 		    		<h1 class="blog-title">
 						<a style="text-decoration:none;color: white;" href="<?php echo esc_url( home_url() ); ?>" title="<?php echo esc_attr( get_bloginfo( 'title' ) ); ?> &mdash; <?php echo esc_attr( get_bloginfo( 'description' ) ); ?>" rel="home"><?php echo esc_attr( get_bloginfo( 'title' ) ); ?></a>
@@ -113,13 +119,15 @@
 						<h3 class="blog-description header_textcolor"><?php echo esc_attr( get_bloginfo( 'description' ) ); ?></h3>
 					<?php } ?>
 				</div>
-	        	<video poster="<?php if (is_file(get_template_directory()."/videos/In-The-Clouds/snapshots/In-The-Clouds.jpg")) echo get_template_directory_uri()."/videos/clothes/snapshots/clothing.jpg";
+				<?php if ( get_theme_mod('vertical_ascent_select_video_or_image_setting','video') == 'video'){?>
+	        	<video poster="<?php if (is_file(get_template_directory()."/videos/In-The-Clouds/snapshots/In-The-Clouds.jpg")) echo get_template_directory_uri()."/videos/In-The-Clouds/snapshots/In-The-Clouds.jpg";
 	        						 else if (get_header_image() != '') header_image();
 	        						 else echo 'https://source.unsplash.com/category/nature'; ?>"
 	        						 autobuffer loop class="fillWidth" id="video" >
 	            	<source src="<?php echo get_template_directory_uri()?>/videos/In-The-Clouds/MP4/In-The-Clouds.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
-	            	<source src="<?php echo get_template_directory_uri()?>/videos/In-The-Clouds/WEBM/In-The-Clouds.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
+	            	<source src="<?php echo get_template_directory_uri()?>/videos/In-The-Clouds/WEBM/In-The-Clouds.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.	            	
 	        	</video>
+	        	<?php } //image ?>
 		    </header>		    	
 		</div>
 	</div>
@@ -131,5 +139,6 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</button>
+		<h3 id="title_movil" class="header_textcolor"><?php echo bloginfo('name');?></h3>
 		<?php wp_nav_menu( array( 'menu' => get_theme_mod( 'vertical_ascent_menu_options' ), 'container' => 'nav', 'depth' => 2 ,'menu_id' => 'menu-with-pages')); ?>
 	</div>
