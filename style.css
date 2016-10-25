@@ -45,8 +45,8 @@ section {
 	-moz-background-size: cover;
 	-o-background-size: cover;
 }
-@media only screen and (min-width: 640px) { .fondo_imagen {	padding: 125px;}}	
-@media only screen and (max-width: 640px) { .fondo_imagen {	padding: 20px;}}	
+@media only screen and (min-width: 640px) { .fondo_imagen, .article_post {	padding: 125px;}}	
+@media only screen and (max-width: 640px) { .fondo_imagen, .article_post {	padding: 20px;}}	
 	
 
 /**la cebecera de todas las paginas**/
@@ -108,6 +108,11 @@ nav ul li a{
 	.sub-menu li:hover, 
        nav ul li:hover {
 	    background-color: #f2f2f2;
+		-o-transition:.1s;
+	  	-ms-transition:.1s;
+	  	-moz-transition:.1s;
+	  	-webkit-transition:.1s;
+	  	transition:.1s;	
 	}
 	#title_movil{
 		display: none;
@@ -122,7 +127,14 @@ nav ul li a{
 	nav ul li:focus ul, 
 	nav ul li:focus ul li {visibility: visible; background-color: #040404;}*/
 	nav ul li:hover ul li a,
-	nav ul li:focus ul li a{visibility: visible; color: #f2f2f2;}
+	nav ul li:focus ul li a{
+		visibility: visible; 
+		color: #f2f2f2;
+		-o-transition:.1s;
+	  	-ms-transition:.1s;
+	  	-moz-transition:.1s;
+	  	-webkit-transition:.1s;
+	  	transition:.1s;	}
 	nav ul li:focus .sub-menu,
 	nav ul li:hover .sub-menu {position: relative;}
 }
@@ -281,7 +293,108 @@ textarea {	width: 100%;}
 	-moz-box-shadow: 5px 5px 5px 0px rgba(161,161,161,1);
 	box-shadow: 5px 5px 5px 0px rgba(161,161,161,1);
 }
+/**single**/
+.article_post * {
+	margin-bottom: 24px;
+}
+.article_post span{
+	margin: 4px;
+}
+.article_post span a{
+	color: black;
+}
+#span_category a::before {
+	border-bottom: 10px solid transparent;
+    border-right: 8px solid #767676;
+    border-top: 10px solid transparent;
+    content: "";
+    height: 0;
+    left: -8px;
+    position: absolute;
+    top: 0;
+    width: 0;
+}
+#span_category a {
+	background-color: #767676;
+    border-radius: 0 2px 2px 0;
+    color: #fff;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.27273;
+    margin: 2px 4px 2px 10px;
+    padding: 3px 7px;
+    position: relative;
+    text-transform: uppercase;
+}
+#span_category a:hover::before {
+	border-right-color: #b5e224;
+}
+#span_category a:hover {
+    background-color: #b5e224;
+    color: #fff;
+}
+.post a {
+	color: black;
+}
+.categories a {
+	background-color: gray;
+	margin: 4px;
+}
+/*currently, it isnt using sidebar
+#sidebar ul{
+ 	list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+#sidebar ul li{
+	float: left;
+}
+#sidebar ul li a{
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}*/
+.relatedposts {
+	display: block;
+    margin: 0 auto;
+    text-align: center;
+    padding: 25px;
+}
+.relatedthumb {
+	margin: 6px auto;
+    max-width: 200px;
+    min-height: 150px;
+    padding: 6px;
+    display: inline-flex;
+ 	border-style: solid;
+    border-width: 2px;
+ /*   border-color: black;*/
+}
 
+.relatedthumb:hover {
+/*	background-color: black;
+	-o-transition:.1s;
+  	-ms-transition:.1s;
+  	-moz-transition:.1s;
+  	-webkit-transition:.1s;
+  	transition:.1s;	*/
+    border-width: 6px;
+    margin: 0px auto;
+}
+/*.relatedthumb a{
+	color: black;
+}
+.relatedthumb a:hover {
+	color: white;
+}
+.border-bottom  {
+	border-bottom: 2px solid black;
+}*/
+/**end single**/
 /*comments*/
 .commentlist { margin-top: 20px;}
 .commentlist li {
