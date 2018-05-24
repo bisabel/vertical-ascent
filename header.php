@@ -80,7 +80,7 @@
 	</style>
 
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript">
 		//jQuery is required to run this code
 		window.onscroll = function (e) {
